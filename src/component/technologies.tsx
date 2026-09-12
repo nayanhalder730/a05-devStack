@@ -18,9 +18,9 @@ export default function Technologies({
     ITechnology[]
   >([]);
 
-  // Add Technology
+  
   const handleAdd = (tech: ITechnology) => {
-    // Check already selected
+   
     const alreadySelected = selectedTechnologies.some(
       (item) => item.id === tech.id
     );
@@ -35,10 +35,8 @@ export default function Technologies({
       return;
     }
 
-    // Add technology
     setSelectedTechnologies((prev) => [...prev, tech]);
 
-    // Success Toast
     toast.success(`🦄 ${tech.name} added to your stack!`, {
       position: "bottom-right",
       autoClose: 5000,
@@ -52,7 +50,6 @@ export default function Technologies({
     });
   };
 
-  // Remove One
   const handleRemove = (id: string) => {
     const removedTechnology = selectedTechnologies.find(
       (item) => item.id === id
@@ -74,7 +71,6 @@ export default function Technologies({
     }
   };
 
-  // Remove All
   const handleRemoveAll = () => {
     if (selectedTechnologies.length === 0) {
       return;
@@ -90,13 +86,12 @@ export default function Technologies({
   };
 
   return (
-    <section className="bg-white py-12">
-      <div className="container mx-auto px-5">
+    <section>
+      <div className="container mx-auto ">
 
-        {/* Section Heading */}
-        <div className="mb-8">
+        <div className="mb-10">
           <h1 className="text-3xl font-bold text-slate-900">
-            Explore the Technologies
+            Explore the <span className="text-[#cb4fb9]">Technologies</span>
           </h1>
 
           <p className="mt-1 text-sm text-slate-500">
@@ -104,10 +99,8 @@ export default function Technologies({
           </p>
         </div>
 
-        {/* Main Layout */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
 
-          {/* Technology Cards */}
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 gap-5 xl:grid-cols-3">
 
@@ -125,7 +118,6 @@ export default function Technologies({
             </div>
           </div>
 
-          {/* Your Stack */}
           <div className="lg:col-span-1">
             <TechnologyStack
               selectedTechnologies={selectedTechnologies}

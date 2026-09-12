@@ -1,12 +1,8 @@
-import type { ITechnology } from "../type/type";
 import logo from "../assets/logo-text.png";
 import { useState } from "react";
 
-export interface NavProps {
-  technology: ITechnology;
-}
 
-export default function Nav({ technology }: NavProps) {
+export default function Nav() {
     const [sign,setSign]=useState(true)
 
     function handelSignButton(){

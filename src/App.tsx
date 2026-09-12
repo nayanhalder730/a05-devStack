@@ -4,6 +4,7 @@ import Banner from "./component/banner";
 import { Suspense, useState } from "react";
 import Technologies from "./component/technologies";
 import type { ITechnology } from "./type/type";
+import { ToastContainer } from "react-toastify";
 
 const technologiesPromis = async (): Promise<ITechnology[]> => {
   const res = await fetch("/data.json");
@@ -12,19 +13,20 @@ const technologiesPromis = async (): Promise<ITechnology[]> => {
   return data;
 };
 
-
 function App() {
+  const [technologies] = useState(() => technologiesPromis);
 
-  const[technologies]=useState(()=>technologiesPromis)
   return (
     <>
       <Nav />
+      <Banner />
 
       <Suspense fallback="Loading....">
         <Technologies technologies={technologies()} />
       </Suspense>
 
-      <Banner />
+      <ToastContainer />
+
     </>
   );
 }

@@ -5,6 +5,7 @@ import { Suspense, useState } from "react";
 import Technologies from "./component/technologies";
 import type { ITechnology } from "./type/type";
 import { ToastContainer } from "react-toastify";
+import Footer from "./component/footer";
 
 const technologiesPromis = async (): Promise<ITechnology[]> => {
   const res = await fetch("/data.json");
@@ -26,6 +27,7 @@ function App() {
       </Suspense>
 
       <ToastContainer />
+      <Footer></Footer>
     </>
   );
 }
